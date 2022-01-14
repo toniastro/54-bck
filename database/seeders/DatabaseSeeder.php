@@ -13,6 +13,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        try{
+            \App\Models\Roles::insert([ ['name'=>'lender', 'active'=> true],['name'=>'borrower', 'active'=> true]] );
+        }catch (\Exception $e){
+            report ($e->getMessage());
+        }
+
     }
 }
